@@ -513,3 +513,9 @@ h3 { font-weight: 600; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; }
 ::selection { background: rgba(164, 117, 78, .18); color: var(--habano-deep); }
+
+/* Firma de la criadora */
+.signature {
+  margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-style: italic; font-size: .98rem; color: var(--habano-dark);
+}

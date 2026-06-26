@@ -68,15 +68,20 @@ Luego visita <http://localhost:8000>.
 
 | Qué                     | Dónde                                                        |
 | ----------------------- | ----------------------------------------------------------- |
+| **Logo**                | Sustituir `assets/logo.svg` (mismo nombre) → se actualiza en cabecera y pie |
 | Colores y tipografías   | Variables `:root` en `css/styles.css`                       |
 | Datos del núcleo        | Sección `#contacto` y footer en `index.html`                |
 | Ejemplares / camadas    | Secciones `#ejemplares` y `#camadas` en `index.html`        |
 | Galería                 | Array `galleryData` en `js/script.js`                       |
 | Número de registro      | `ES350330027837` y `20/2023` en `index.html`                |
 
-> El nombre, la ubicación y los números de registro son los reales del criadero.
-> Las **fotos** (emojis/degradados), el **email/teléfono** y los **nombres de los
-> perros y camadas** son de ejemplo: sustitúyelos antes de publicar.
+> **Datos reales** ya integrados: nombre del criadero, criadora (Diana Martel
+> Suárez), ubicación (Vega de San Mateo, Las Palmas), año (2023), descripción y
+> números de registro.
+>
+> **Pendiente de aportar:** el **logo** (`assets/logo.svg` es un placeholder con
+> el monograma «HL»), las **fotos** reales, los **datos de contacto**
+> (email/teléfono/redes) y los **nombres de los perros y camadas** (de ejemplo).
 
 ---
 
