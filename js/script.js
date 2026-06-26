@@ -27,6 +27,42 @@
     });
   }
 
+  /* --- Barra de progreso de lectura --- */
+  const progress = document.getElementById("scrollProgress");
+  if (progress) {
+    const updateProgress = function () {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      progress.style.width = Math.max(0, Math.min(1, scrolled)) * 100 + "%";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* --- Contadores animados del hero --- */
+  const counters = document.querySelectorAll("[data-count]");
+  if (counters.length && "IntersectionObserver" in window) {
+    const animate = function (el) {
+      const target = parseInt(el.getAttribute("data-count"), 10);
+      const suffix = el.getAttribute("data-suffix") || "";
+      const duration = 1400;
+      const start = performance.now();
+      const step = function (now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+        el.textContent = Math.round(eased * target) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const cObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animate(entry.target); cObs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { cObs.observe(el); });
+  }
+
   /* --- Botón "volver arriba" --- */
   const toTop = document.getElementById("toTop");
   if (toTop) {

@@ -15,6 +15,17 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+  <!-- Barra de progreso de lectura -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Banner superior premium -->
+  <div class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-text">✨ Camada de primavera disponible · cachorros con pedigree y garantía de salud</span>
+      <a href="#camadas" class="topbar-link">Reservar →</a>
+    </div>
+  </div>
+
   <!-- ====== HEADER / NAV ====== -->
   <header class="site-header" id="top">
     <div class="container nav-wrap">
@@ -49,6 +60,9 @@
     <!-- ====== HERO ====== -->
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-paws" aria-hidden="true">
+        <span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span>
+      </div>
       <div class="container hero-inner">
         <p class="eyebrow">Criadero familiar en Canarias · Núcleo Zoológico ES350330027837</p>
         <h1>El Bichón Habanero,<br />criado entre lavanda y campo</h1>
@@ -62,8 +76,8 @@
           <a class="btn btn-ghost" href="#raza">Conocer la raza</a>
         </div>
         <ul class="hero-stats">
-          <li><strong>15+</strong><span>años de experiencia</span></li>
-          <li><strong>100%</strong><span>tests de salud</span></li>
+          <li><strong data-count="15" data-suffix="+">0</strong><span>años de experiencia</span></li>
+          <li><strong data-count="100" data-suffix="%">0</strong><span>tests de salud</span></li>
           <li><strong>∞</strong><span>seguimiento de por vida</span></li>
         </ul>
       </div>
@@ -219,6 +233,7 @@
 
         <div class="litters">
           <article class="litter litter-open">
+            <span class="ribbon">★ Destacada</span>
             <div class="litter-status">Disponible</div>
             <h3>Camada de primavera</h3>
             <p class="litter-meta">Maceo × Yara · Nacidos en abril</p>
