@@ -68,7 +68,7 @@ Luego visita <http://localhost:8000>.
 
 | Qué                     | Dónde                                                        |
 | ----------------------- | ----------------------------------------------------------- |
-| **Logo**                | Sustituir `assets/logo.svg` (mismo nombre) → se actualiza en cabecera y pie |
+| **Logo**                | `assets/logo.png` (cabecera, pie y sección «El núcleo») · favicon en `assets/logo-favicon.png` |
 | Colores y tipografías   | Variables `:root` en `css/styles.css`                       |
 | Datos del núcleo        | Sección `#contacto` y footer en `index.html`                |
 | Ejemplares / camadas    | Secciones `#ejemplares` y `#camadas` en `index.html`        |
@@ -81,8 +81,7 @@ Luego visita <http://localhost:8000>.
 > (`@habaneros__la_lavanda_canarias`), **WhatsApp** (+34 609 468 049) y
 > **Facebook** (diana.martelsuarez).
 >
-> **Pendiente de aportar:** el **logo** (`assets/logo.svg` es un placeholder con
-> el monograma «HL»), las **fotos** reales y los **nombres de los perros y
+> **Pendiente de aportar:** las **fotos** reales y los **nombres de los perros y
 > camadas** (de ejemplo).
 
 ---

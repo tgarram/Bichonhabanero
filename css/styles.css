@@ -539,3 +539,10 @@ h3 { font-weight: 600; }
   font-family: var(--font-display); font-size: 1.1rem; font-style: italic; letter-spacing: .02em;
   color: rgba(61, 42, 29, .42); text-align: center; padding: 0 1.5rem;
 }
+
+/* Logo del pie recortado en círculo sobre fondo oscuro */
+.brand-footer img { border-radius: 50%; }
+
+/* Logo como imagen de la sección "El núcleo" */
+.media-logo { background: var(--cream); display: grid; place-items: center; padding: 2rem; }
+.media-logo img { width: min(78%, 280px); height: auto; }
