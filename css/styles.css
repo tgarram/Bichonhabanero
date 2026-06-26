@@ -342,200 +342,174 @@ h3 { font-size: 1.25rem; }
 }
 
 /* ===========================================================
-   ✦ EDICIÓN DELUXE — capa premium superpuesta
-   Oro, glassmorphism, animaciones y micro-interacciones.
+   ✦ QUIET LUXURY — capa minimalista y profesional
+   Sobriedad, aire, líneas finas y un único acento contenido.
+   Sustituye a la antigua capa recargada.
    =========================================================== */
 
-/* --- Barra de progreso de lectura --- */
+:root {
+  --accent: #a4754e;          /* clay apagado, menos naranja */
+  --muted: #8a7d6d;
+  --line: rgba(40, 28, 18, .10);
+  --line-strong: rgba(40, 28, 18, .18);
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 0 24px 60px -38px rgba(61, 42, 29, .35);
+}
+
+body { line-height: 1.7; }
+
+/* Tipografía más ligera y editorial */
+h1 { font-weight: 500; letter-spacing: -0.022em; }
+h2 { font-weight: 500; letter-spacing: -0.015em; }
+h3 { font-weight: 600; }
+
+/* Más aire entre secciones */
+.section { padding: clamp(4.5rem, 10vw, 7.5rem) 0; }
+.section-tint { background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+/* --- Barra de progreso (fina y discreta) --- */
 .scroll-progress {
-  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-deep));
-  z-index: 200; transition: width .1s linear;
-  box-shadow: 0 0 12px rgba(201, 163, 91, .6);
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: var(--accent); z-index: 200; transition: width .1s linear;
 }
 
-/* --- Banner superior premium --- */
-.topbar {
-  background: linear-gradient(90deg, var(--habano-deep), #4a3220, var(--habano-deep));
-  color: var(--cream); font-size: .84rem;
+/* --- Header sobrio --- */
+.site-header { background: rgba(250, 244, 236, 0.85); border-bottom: 1px solid var(--line); }
+.brand-text strong { font-weight: 600; letter-spacing: -0.01em; }
+.brand-mark { box-shadow: none; }
+.nav a { font-weight: 500; font-size: .9rem; color: var(--ink); }
+.nav a:hover { background: transparent; color: var(--accent); }
+.nav-cta { background: var(--habano-deep); border-radius: var(--radius-sm); }
+.nav-cta:hover { background: var(--ink) !important; }
+
+/* --- Botones minimalistas (mayúsculas finas, esquinas sutiles) --- */
+.btn {
+  border-radius: var(--radius-sm); text-transform: uppercase;
+  letter-spacing: .1em; font-size: .76rem; font-weight: 600; padding: 16px 30px;
 }
-.topbar-inner { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 8px 22px; flex-wrap: wrap; }
-.topbar-text { letter-spacing: .02em; }
-.topbar-link { color: var(--gold-light); font-weight: 800; white-space: nowrap; }
-.topbar-link:hover { color: #fff; text-decoration: none; }
+.btn:hover { transform: none; }
+.btn-primary { background: var(--habano-deep); color: #fff; box-shadow: none; }
+.btn-primary:hover { background: var(--ink); color: #fff; }
+.btn-ghost { background: transparent; border: 1px solid var(--line-strong); color: var(--ink); }
+.btn-ghost:hover { background: transparent; border-color: var(--ink); }
+.btn-sm { padding: 12px 22px; font-size: .72rem; }
 
-/* --- Tipografía display con peso óptico mayor en títulos --- */
-h1, h2 { font-weight: 600; letter-spacing: -0.015em; }
-h2 { position: relative; }
-
-/* Filete dorado bajo los encabezados de sección */
-.section-head h2::after {
-  content: ""; display: block; width: 56px; height: 3px; margin: .9rem auto 0;
-  background: linear-gradient(90deg, var(--gold), var(--gold-deep)); border-radius: 3px;
-}
-
-/* --- Header con cristal y borde dorado sutil --- */
-.site-header { background: rgba(250, 244, 236, 0.78); border-bottom: 1px solid rgba(201, 163, 91, .22); }
-.brand-mark { box-shadow: 0 0 0 2px rgba(201,163,91,.5), 0 6px 16px -6px rgba(61,42,29,.5); }
-
-/* --- Botones con degradado y barrido de brillo --- */
-.btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--habano) 55%, var(--habano-dark));
-  position: relative; overflow: hidden; box-shadow: 0 14px 30px -14px rgba(154,107,74,.7);
-}
-.btn-primary::after {
-  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
-  transform: skewX(-20deg); transition: left .6s ease;
-}
-.btn-primary:hover::after { left: 130%; }
-.btn-ghost { backdrop-filter: blur(4px); border-color: var(--gold); color: var(--habano-deep); }
-.btn-ghost:hover { background: rgba(201,163,91,.12); border-color: var(--gold-deep); }
-
-/* --- Hero animado --- */
-.hero-bg {
-  background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(201, 138, 91, 0.28), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(107, 143, 113, 0.2), transparent 55%),
-    linear-gradient(160deg, var(--cream) 0%, var(--cream-2) 55%, #efddc8 100%);
-  background-size: 100% 100%, 100% 100%, 200% 200%;
-  animation: heroPan 18s ease-in-out infinite alternate;
-}
-@keyframes heroPan { from { background-position: 0% 0%, 0% 0%, 0% 0%; } to { background-position: 0% 0%, 0% 0%, 100% 100%; } }
-
+/* --- Hero limpio: fondo plano cálido, sin patrones ni animación --- */
+.hero { padding: clamp(4.5rem, 11vw, 9rem) 0; }
+.hero-bg { background: linear-gradient(180deg, #fcf8f1 0%, var(--cream) 100%); animation: none; }
+.hero-bg::after { display: none; }
 .eyebrow {
-  background: linear-gradient(135deg, rgba(201,163,91,.18), rgba(154,107,74,.12));
-  border: 1px solid rgba(201,163,91,.4); color: var(--habano-dark);
-  box-shadow: 0 6px 18px -10px rgba(201,163,91,.6);
+  background: none; border: 0; padding: 0; margin-bottom: 1.6rem; color: var(--muted);
+  font-weight: 600; letter-spacing: .2em; font-size: .72rem;
+}
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--muted); max-width: 560px; }
+.hero-stats { gap: 3rem; margin-top: 3.4rem; padding-top: 2.2rem; border-top: 1px solid var(--line); }
+.hero-stats strong { font-weight: 500; color: var(--habano-deep); background: none; -webkit-text-fill-color: currentColor; }
+
+/* --- Trust bar ligera con separadores finos --- */
+.trust { background: transparent; border-bottom: 1px solid var(--line); color: var(--ink); }
+.trust-grid { padding: 1.6rem 22px; }
+.trust-item { color: var(--ink); font-weight: 600; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; }
+.trust-item .ico { display: none; }
+
+/* --- Encabezados de sección sobrios --- */
+.kicker { color: var(--accent); letter-spacing: .2em; font-weight: 600; font-size: .72rem; }
+.section-sub { color: var(--muted); }
+
+/* --- Tarjetas planas con filete fino --- */
+.card {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: none; padding: 2.2rem;
+}
+.card:hover { transform: none; box-shadow: none; border-color: var(--line-strong); }
+.card-ico { filter: grayscale(1); opacity: .5; font-size: 1.5rem; margin-bottom: 1rem; }
+
+/* La raza: numeración editorial 01–06 en lugar de emojis */
+#raza .cards-3 { counter-reset: rc; }
+#raza .card-ico { font-size: 0; filter: none; opacity: 1; }
+#raza .card-ico::before {
+  counter-increment: rc; content: counter(rc, decimal-leading-zero);
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--accent);
+  letter-spacing: .05em; padding-bottom: .7rem; border-bottom: 1px solid var(--line-strong);
 }
 
-/* Huellas flotantes decorativas */
-.hero-paws { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.hero-paws span {
-  position: absolute; font-size: 1.6rem; opacity: .12; filter: saturate(0.6);
-  animation: floatPaw 14s ease-in-out infinite;
+/* --- Ilustración: bloque tonal con monograma --- */
+.media-card { box-shadow: none; border: 1px solid var(--line); }
+.illus-home { background: linear-gradient(135deg, #f1e9dc, #e4d9c8); }
+.illus-home::after {
+  content: "HL"; font-size: 2.6rem; color: rgba(61, 42, 29, .28); letter-spacing: .08em;
+  font-weight: 500; filter: none;
 }
-.hero-paws span:nth-child(1) { left: 6%;  top: 22%; animation-delay: 0s;   font-size: 2.2rem; }
-.hero-paws span:nth-child(2) { left: 86%; top: 30%; animation-delay: 2s;   font-size: 1.4rem; }
-.hero-paws span:nth-child(3) { left: 72%; top: 68%; animation-delay: 4s;   font-size: 2.6rem; }
-.hero-paws span:nth-child(4) { left: 16%; top: 74%; animation-delay: 1.2s; font-size: 1.6rem; }
-.hero-paws span:nth-child(5) { left: 50%; top: 12%; animation-delay: 3s;   font-size: 1.2rem; }
-.hero-paws span:nth-child(6) { left: 40%; top: 84%; animation-delay: 5s;   font-size: 2rem; }
-@keyframes floatPaw { 0%,100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-22px) rotate(8deg); } }
 
-/* Stats del hero con número dorado */
-.hero-stats strong { background: linear-gradient(135deg, var(--habano-deep), var(--gold-deep)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Checklist con marca fina */
+.checklist li::before { background: transparent; color: var(--accent); border: 1px solid var(--accent); font-size: .7rem; }
 
-/* --- Tarjetas premium con glow dorado --- */
-.card, .dog-card, .litter, .quote {
-  position: relative; border: 1px solid rgba(201,163,91,.18);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.card::before, .litter::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-  background: linear-gradient(135deg, rgba(230,207,148,.6), transparent 40%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .25s ease;
-  pointer-events: none;
-}
-.card:hover, .dog-card:hover, .litter:hover, .quote:hover {
-  border-color: rgba(201,163,91,.45);
-  box-shadow: 0 24px 50px -28px rgba(160, 125, 54, .55);
-}
-.card:hover::before, .litter:hover::before { opacity: 1; }
-.card-ico { filter: drop-shadow(0 4px 8px rgba(154,107,74,.25)); }
+/* --- Cuidados: tabla limpia --- */
+.care-strip { box-shadow: none; border: 1px solid var(--line); }
 
-/* --- Fotos de perros con anillo dorado --- */
-.dog-photo { position: relative; }
+/* --- Ejemplares: placeholder de foto refinado, sin emoji --- */
+.dog-card { box-shadow: none; border: 1px solid var(--line); }
+.dog-card:hover { transform: none; border-color: var(--line-strong); }
+.dog-photo { font-size: 0; }
+.dog-photo[data-color="cream"] { background: #efe7da; }
+.dog-photo[data-color="white"] { background: #f3ede2; }
+.dog-photo[data-color="choco"] { background: #e4d8c6; }
 .dog-photo::after {
-  content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 3px rgba(230,207,148,.35);
+  content: "Foto próximamente"; position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(61, 42, 29, .35);
+  box-shadow: none;
 }
-.dog-card { box-shadow: 0 16px 40px -28px rgba(61,42,29,.6); }
+.dog-meta { color: var(--accent); }
+.tags li { background: transparent; border: 1px solid var(--line-strong); border-radius: 2px; color: var(--habano-dark); font-weight: 600; }
 
-/* Etiquetas tipo "chip" con borde dorado */
-.tags li { background: linear-gradient(135deg, var(--cream-2), #efe2cf); border: 1px solid rgba(201,163,91,.35); }
+/* --- Camadas: tarjetas planas, badges discretos --- */
+.litter { box-shadow: none; border: 1px solid var(--line); }
+.litter:hover { box-shadow: none; border-color: var(--line-strong); }
+.litter-open { border-color: var(--accent); box-shadow: none; }
+.litter-status { border-radius: 2px; font-size: .64rem; letter-spacing: .14em; padding: 5px 11px; }
+.litter-meta { color: var(--accent); }
 
-/* --- Camadas: cinta premium --- */
-.litter { overflow: hidden; }
-.ribbon {
-  position: absolute; top: 16px; right: -34px; transform: rotate(45deg);
-  background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #fff;
-  font-size: .7rem; font-weight: 800; letter-spacing: .05em; padding: 5px 40px;
-  box-shadow: 0 6px 14px -6px rgba(160,125,54,.8); z-index: 2;
-}
-.litter-open { box-shadow: 0 22px 50px -26px rgba(107,143,113,.6); }
+/* --- Garantías: bloque oscuro plano --- */
+.guarantee { background: var(--habano-deep); }
+.guarantee-grid span { filter: grayscale(1); opacity: .85; }
 
-/* --- Franja de garantías con destello dorado --- */
-.guarantee { position: relative; overflow: hidden; }
-.guarantee::before {
-  content: ""; position: absolute; top: -50%; left: -10%; width: 50%; height: 200%;
-  background: radial-gradient(closest-side, rgba(230,207,148,.18), transparent);
-  transform: rotate(20deg);
-}
-.guarantee-grid span { filter: drop-shadow(0 3px 6px rgba(0,0,0,.25)); }
+/* --- Galería: viñeta fina al pasar --- */
+.gallery .tile { box-shadow: none; border-radius: var(--radius-sm); }
+.gallery .tile:hover { transform: none; filter: brightness(1.03); }
 
-/* --- Galería: zoom + viñeta dorada --- */
-.gallery .tile { box-shadow: 0 10px 26px -18px rgba(61,42,29,.7); }
-.gallery .tile::before {
-  content: ""; position: absolute; inset: 0; z-index: 1;
-  box-shadow: inset 0 0 0 0 rgba(230,207,148,0); transition: box-shadow .25s ease;
-}
-.gallery .tile:hover::before { box-shadow: inset 0 0 0 3px rgba(230,207,148,.8); }
+/* --- Citas: minimalistas --- */
+.quote { box-shadow: none; border: 1px solid var(--line); border-left: 2px solid var(--accent); }
+.quote:hover { box-shadow: none; border-color: var(--line-strong); border-left-color: var(--accent); }
+.quote p { font-style: normal; font-weight: 500; }
 
-/* --- Cita con comilla decorativa --- */
-.quote { border-left: 4px solid var(--gold); }
-.quote::after {
-  content: "\201D"; position: absolute; top: 2px; right: 18px; font-family: var(--font-display);
-  font-size: 4rem; line-height: 1; color: rgba(201,163,91,.22);
-}
+/* --- FAQ: líneas finas --- */
+.accordion details { border: 1px solid var(--line); }
+.accordion details[open] { border-color: var(--line-strong); box-shadow: none; }
+.accordion summary::after { color: var(--accent); }
 
-/* --- FAQ con acento dorado --- */
-.accordion details { border: 1px solid rgba(201,163,91,.2); transition: box-shadow .2s, border-color .2s; }
-.accordion details[open] { border-color: rgba(201,163,91,.45); box-shadow: 0 14px 34px -26px rgba(160,125,54,.6); }
-.accordion summary::after { color: var(--gold-deep); }
+/* --- Contacto --- */
+.section-dark { background: var(--habano-deep); }
+.section-dark::before { display: none; }
+.contact-form { box-shadow: none; border: 1px solid var(--line); }
+.field input, .field select, .field textarea { background: var(--white); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: none; }
+.socials a { border: 1px solid rgba(255,255,255,.18); background: transparent; border-radius: var(--radius-sm); }
+.socials a:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); }
 
-/* --- Contacto oscuro con textura dorada --- */
-.section-dark { position: relative; overflow: hidden; }
-.section-dark::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(600px 300px at 90% 0%, rgba(201,163,91,.16), transparent 60%);
-}
-.section-dark .container { position: relative; z-index: 1; }
-.contact-form { border: 1px solid rgba(201,163,91,.25); }
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,163,91,.18);
-}
-.socials a { border: 1px solid rgba(230,207,148,.3); }
-.socials a:hover { border-color: var(--gold-light); }
+/* --- Volver arriba: discreto --- */
+.to-top { background: var(--habano-deep); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.to-top:hover { background: var(--ink); }
 
-/* --- Botón volver arriba dorado --- */
-.to-top { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); box-shadow: 0 14px 30px -12px rgba(160,125,54,.7); }
-.to-top:hover { background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+/* --- Footer --- */
+.site-footer::before { display: none; }
 
-/* --- Footer con filete dorado superior --- */
-.site-footer { position: relative; }
-.site-footer::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
+/* --- Lightbox --- */
+.lb-content { box-shadow: var(--shadow); }
 
-/* --- Trust bar con separadores dorados --- */
-.trust { background: linear-gradient(90deg, var(--habano-deep), #4a3220 50%, var(--habano-deep)); }
-.trust-item .ico { filter: drop-shadow(0 2px 5px rgba(0,0,0,.4)); }
-
-/* --- Scrollbar personalizada --- */
-* { scrollbar-width: thin; scrollbar-color: var(--gold) var(--cream-2); }
-::-webkit-scrollbar { width: 11px; }
-::-webkit-scrollbar-track { background: var(--cream-2); }
-::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--gold-deep)); border-radius: 10px; border: 2px solid var(--cream-2); }
-
-/* --- Selección de texto --- */
-::selection { background: rgba(201,163,91,.3); color: var(--habano-deep); }
-
-/* --- Lightbox con marco dorado --- */
-.lb-content { box-shadow: 0 0 0 4px rgba(230,207,148,.5), var(--shadow); }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg, .hero-paws span { animation: none !important; }
-  .btn-primary::after { display: none; }
-}
+/* --- Scrollbar discreta --- */
+* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; }
+::selection { background: rgba(164, 117, 78, .18); color: var(--habano-deep); }
