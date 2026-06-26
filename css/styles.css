@@ -519,3 +519,6 @@ h3 { font-weight: 600; }
   margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
   font-family: var(--font-display); font-style: italic; font-size: .98rem; color: var(--habano-dark);
 }
+
+/* CTA de la galería */
+.gallery-cta { text-align: center; margin-top: 2.2rem; }
