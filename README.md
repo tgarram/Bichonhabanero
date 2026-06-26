@@ -77,13 +77,13 @@ Luego visita <http://localhost:8000>.
 
 > **Datos reales** ya integrados: nombre del criadero, criadora (Diana Martel
 > Suárez), ubicación (La Vega de San Mateo, Gran Canaria), año (2023),
-> descripción, números de registro e **Instagram**
-> (`@habaneros__la_lavanda_canarias`).
+> descripción, números de registro, **Instagram**
+> (`@habaneros__la_lavanda_canarias`), **WhatsApp** (+34 609 468 049) y
+> **Facebook** (diana.martelsuarez).
 >
 > **Pendiente de aportar:** el **logo** (`assets/logo.svg` es un placeholder con
-> el monograma «HL»), las **fotos** reales, los **datos de contacto**
-> (email/teléfono, Facebook, WhatsApp) y los **nombres de los perros y camadas**
-> (de ejemplo).
+> el monograma «HL»), las **fotos** reales y los **nombres de los perros y
+> camadas** (de ejemplo).
 
 ---
 
