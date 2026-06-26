@@ -1,9 +1,11 @@
 # Documento de Diseño de Software (SDD)
-## Web del Núcleo Zoológico del Bichón Habanero — "Perla de la Habana"
+## Web del Criadero de Bichón Habanero — "Habaneros de la Lavanda Canarias"
 
-| Campo            | Valor                                             |
-| ---------------- | ------------------------------------------------- |
-| Proyecto         | Sitio web del núcleo zoológico Perla de la Habana |
+| Campo            | Valor                                                       |
+| ---------------- | ----------------------------------------------------------- |
+| Proyecto         | Sitio web de Habaneros de la Lavanda Canarias               |
+| Criadora         | Diana Martel Suárez · Vega de San Mateo (Las Palmas)        |
+| Núcleo zoológico | ES350330027837 (Gobierno de Canarias) · 20/2023 (S.C. Valencia) |
 | Versión del doc  | 1.0                                               |
 | Fecha            | 2026-06-26                                        |
 | Estado           | Aprobado para implementación                      |
@@ -14,8 +16,9 @@
 ## 1. Introducción
 
 ### 1.1 Propósito
-Este documento describe el diseño de software de la web del núcleo zoológico
-**Perla de la Habana**, dedicado a la cría responsable del **Bichón Habanero**.
+Este documento describe el diseño de software de la web del criadero y núcleo
+zoológico **Habaneros de la Lavanda Canarias**, dedicado a la cría responsable
+del **Bichón Habanero**.
 Sirve como referencia técnica para implementación, mantenimiento y futuras
 ampliaciones.
 
@@ -189,7 +192,7 @@ python3 -m http.server 8000
 
 | Riesgo | Impacto | Mitigación |
 | ------ | ------- | ---------- |
-| Datos legales de ejemplo en producción | Alto | Revisar y sustituir `ZOO-XXXX/2026` y contacto antes de publicar. |
+| Email/teléfono y nombres de perros de ejemplo | Medio | Sustituir datos de contacto y fichas reales antes de publicar. |
 | Dependencia de Google Fonts | Bajo | Hay *fallback* de fuentes del sistema en el CSS. |
 | Formulario sin backend | Medio | Integrar servicio antes del lanzamiento (sección 7). |
 

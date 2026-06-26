@@ -1,8 +1,12 @@
-# 🐾 Perla de la Habana · Núcleo Zoológico del Bichón Habanero
+# 🐾 Habaneros de la Lavanda Canarias · Criadero de Bichón Habanero
 
-Web estática, moderna y responsive para un **núcleo zoológico legalmente
-registrado** dedicado a la cría responsable del **Bichón Habanero**, el único
-perro nativo de Cuba.
+Web estática, moderna y responsive para **Habaneros de la Lavanda Canarias**, un
+criadero familiar y **núcleo zoológico registrado** en Vega de San Mateo
+(Las Palmas, Islas Canarias), dedicado a la cría responsable del **Bichón
+Habanero**, el único perro nativo de Cuba. Criadora: Diana Martel Suárez.
+
+**Datos oficiales:** Núcleo Zoológico N.º ES350330027837 (Gobierno de Canarias) ·
+Registro 20/2023 (Sociedad Canina de Valencia).
 
 El sitio presenta el criadero, explica la raza, muestra los ejemplares
 reproductores, las camadas disponibles, una galería, testimonios, preguntas
@@ -68,10 +72,11 @@ Luego visita <http://localhost:8000>.
 | Datos del núcleo        | Sección `#contacto` y footer en `index.html`                |
 | Ejemplares / camadas    | Secciones `#ejemplares` y `#camadas` en `index.html`        |
 | Galería                 | Array `galleryData` en `js/script.js`                       |
-| Número de registro      | Buscar `ZOO-XXXX/2026` en `index.html`                      |
+| Número de registro      | `ES350330027837` y `20/2023` en `index.html`                |
 
-> Los textos, fotos y el número de núcleo zoológico son de ejemplo: sustitúyelos
-> por los datos reales del criadero antes de publicar.
+> El nombre, la ubicación y los números de registro son los reales del criadero.
+> Las **fotos** (emojis/degradados), el **email/teléfono** y los **nombres de los
+> perros y camadas** son de ejemplo: sustitúyelos antes de publicar.
 
 ---
 

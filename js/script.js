@@ -1,5 +1,5 @@
 /* =====================================================================
-   Perla de la Habana — interactividad del sitio
+   Habaneros de la Lavanda Canarias — interactividad del sitio
    JS modular sin dependencias. Cada bloque tiene una responsabilidad.
    ===================================================================== */
 (function () {
