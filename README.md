@@ -81,8 +81,16 @@ Luego visita <http://localhost:8000>.
 > (`@habaneros__la_lavanda_canarias`), **WhatsApp** (+34 609 468 049) y
 > **Facebook** (diana.martelsuarez).
 >
-> **Pendiente de aportar:** las **fotos** reales y los **nombres de los perros y
-> camadas** (de ejemplo).
+> **Pendiente de aportar:** las **fotos** reales, los **nombres de los perros y
+> camadas** (de ejemplo) y, en las páginas legales, el **NIF** del titular y un
+> **correo de contacto** (marcados como pendientes en `aviso-legal.html` y
+> `privacidad.html`).
+
+### Páginas legales
+
+`privacidad.html`, `cookies.html` y `aviso-legal.html` (enlazadas desde el pie).
+El aviso de cookies (`js/cookies.js`) guarda la preferencia en `localStorage`;
+la web no usa cookies de seguimiento.
 
 ---
 

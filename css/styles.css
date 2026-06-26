@@ -546,3 +546,40 @@ h3 { font-weight: 600; }
 /* Logo como imagen de la sección "El núcleo" */
 .media-logo { background: var(--cream); display: grid; place-items: center; padding: 2rem; }
 .media-logo img { width: min(78%, 280px); height: auto; }
+
+/* ===========================================================
+   Aviso de cookies + páginas legales
+   =========================================================== */
+.cookie-banner {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%) translateY(20px);
+  width: min(700px, calc(100% - 36px)); background: var(--white); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: 1.1rem 1.3rem; box-shadow: var(--shadow); z-index: 300;
+  display: flex; align-items: center; gap: 1.2rem; opacity: 0; pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.cookie-banner.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.cookie-banner p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+.cookie-banner a { color: var(--accent); text-decoration: underline; }
+.cookie-actions { display: flex; gap: .5rem; flex-shrink: 0; }
+@media (max-width: 620px) {
+  .cookie-banner { flex-direction: column; align-items: stretch; text-align: center; bottom: 12px; }
+  .cookie-actions { justify-content: center; }
+}
+
+/* Páginas legales */
+.legal-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 72px; }
+.legal-main { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.legal-main h1 { margin-bottom: .3rem; }
+.legal-main .updated { color: var(--muted); font-size: .85rem; margin-bottom: 2.4rem; }
+.legal-main h2 { font-size: 1.35rem; margin: 2.4rem 0 .8rem; }
+.legal-main p { color: var(--ink); margin-bottom: .8rem; }
+.legal-main ul { padding-left: 1.2rem; margin: .6rem 0 1rem; display: grid; gap: .45rem; }
+.legal-main li { color: var(--ink); }
+.legal-main a { color: var(--accent); text-decoration: underline; }
+.legal-note {
+  background: var(--cream-2); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem; font-size: .88rem; color: var(--muted); margin: 1.2rem 0;
+}
+
+/* Datos de la finca en la sección El entorno */
+.entorno-facts { margin-top: 1.4rem; }

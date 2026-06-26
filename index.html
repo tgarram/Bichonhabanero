@@ -180,17 +180,24 @@
           <h2>La Lavanda, donde crecen nuestros cachorros</h2>
           <p>
             Nuestros bichones nacen y se crían en <strong>La Lavanda</strong>, una
-            casa rural en <strong>La Vega de San Mateo (Gran Canaria)</strong>,
-            rodeada de naturaleza y con vistas. Aquí los cachorros dan sus primeros
-            pasos al aire libre, en calma y en contacto con el campo: el mejor
-            comienzo para un perro equilibrado y bien sociabilizado.
+            finca de <strong>1.500 m² de árboles frutales</strong> en
+            <strong>La Vega de San Mateo (Gran Canaria)</strong>, entre sonidos del
+            campo y amaneceres con vistas a las montañas. Aquí los cachorros dan sus
+            primeros pasos al aire libre, en calma: el mejor comienzo para un perro
+            equilibrado y bien sociabilizado.
           </p>
           <p>
             Y si quieres conocer su entorno —o simplemente desconectar—, La Lavanda
-            es también una <strong>vivienda vacacional</strong> que puedes reservar.
-            Un rincón tranquilo para disfrutar de la isla y, de paso, de la mejor
-            compañía.
+            es también una <strong>casa de invitados</strong> que puedes reservar:
+            una vivienda independiente para hasta 5 viajeros, con amplia terraza,
+            mucha privacidad y rutas de senderismo que nacen cerca.
           </p>
+          <ul class="tags entorno-facts">
+            <li>1.500 m² de finca</li>
+            <li>5 viajeros · 2 dormitorios</li>
+            <li>Vistas a las montañas</li>
+            <li>Senderismo cerca</li>
+          </ul>
           <div class="hero-actions" style="margin-top:1.6rem">
             <a class="btn btn-primary" href="https://www.airbnb.es/rooms/770309540864551756" target="_blank" rel="noopener">Ver la casa en Airbnb</a>
             <a class="btn btn-ghost" href="https://www.instagram.com/habaneros__la_lavanda_canarias" target="_blank" rel="noopener">El entorno en Instagram</a>
@@ -441,9 +448,9 @@
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Aviso legal</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Contrato de compraventa</a></li>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+          <li><a href="cookies.html">Política de cookies</a></li>
         </ul>
       </div>
     </div>
@@ -460,6 +467,15 @@
 
   <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
 
+  <!-- Aviso de cookies -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+    <p>Usamos almacenamiento local solo para recordar tu preferencia y la tipografía de Google Fonts. <strong>No utilizamos cookies de seguimiento ni publicidad.</strong> Más detalles en la <a href="cookies.html">Política de Cookies</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost btn-sm" id="cookieReject" type="button">Rechazar</button>
+      <button class="btn btn-primary btn-sm" id="cookieAccept" type="button">Aceptar</button>
+    </div>
+  </div>
+
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
@@ -467,5 +483,6 @@
   </div>
 
   <script src="js/script.js"></script>
+  <script src="js/cookies.js"></script>
 </body>
 </html>
