@@ -100,6 +100,7 @@
       tile.setAttribute("aria-label", "Ampliar imagen de la galería");
       tile.addEventListener("click", function () {
         if (!lightbox || !lbContent) return;
+        lbContent.classList.remove("is-image");
         lbContent.style.background = item.bg;
         lbContent.textContent = item.emoji;
         lightbox.classList.add("open");
@@ -108,6 +109,21 @@
       gallery.appendChild(tile);
     });
   }
+
+  /* --- Fotos reales (alojamiento) en el lightbox --- */
+  var photoTiles = document.querySelectorAll("[data-lightbox-src]");
+  photoTiles.forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (!lightbox || !lbContent) return;
+      var src = el.getAttribute("data-lightbox-src");
+      var alt = el.getAttribute("data-lightbox-alt") || "";
+      lbContent.style.background = "transparent";
+      lbContent.classList.add("is-image");
+      lbContent.innerHTML = '<img src="' + src + '" alt="' + alt + '">';
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+    });
+  });
 
   function closeLightbox() {
     if (!lightbox) return;
