@@ -632,3 +632,29 @@ h3 { font-weight: 600; }
 /* Lightbox con imagen real */
 .lb-content.is-image { aspect-ratio: auto; width: auto; height: auto; background: transparent !important; box-shadow: none; }
 .lb-content.is-image img { max-width: 90vw; max-height: 85vh; width: auto; height: auto; border-radius: 8px; box-shadow: var(--shadow); display: block; }
+
+/* Carrusel deslizable del alojamiento (El entorno) */
+.entorno-carousel { position: relative; margin-top: .4rem; }
+.entorno-track {
+  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 2px 14px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+}
+.entorno-track .ph {
+  flex: 0 0 auto; width: clamp(230px, 27vw, 300px); aspect-ratio: 4/3;
+  border: 0; padding: 0; background: none; cursor: pointer; overflow: hidden;
+  border-radius: var(--radius-sm); scroll-snap-align: center;
+  box-shadow: 0 12px 28px -20px rgba(61,42,29,.6);
+}
+.entorno-track .ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.entorno-track .ph:hover img { transform: scale(1.05); }
+.entorno-track::-webkit-scrollbar { height: 6px; }
+.entorno-track::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 10px; }
+.car-nav {
+  position: absolute; top: calc(50% - 7px); z-index: 3;
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong);
+  background: var(--white); color: var(--habano-deep); font-size: 1.5rem; line-height: 1; cursor: pointer;
+  box-shadow: var(--shadow); display: grid; place-items: center; transition: background .2s ease;
+}
+.car-prev { left: -10px; } .car-next { right: -10px; }
+.car-nav:hover { background: var(--cream-2); }
+@media (max-width: 680px) { .car-nav { display: none; } .entorno-track .ph { width: 80vw; } }

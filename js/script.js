@@ -110,20 +110,48 @@
     });
   }
 
-  /* --- Fotos reales (alojamiento) en el lightbox --- */
-  var photoTiles = document.querySelectorAll("[data-lightbox-src]");
-  photoTiles.forEach(function (el) {
-    el.addEventListener("click", function () {
-      if (!lightbox || !lbContent) return;
-      var src = el.getAttribute("data-lightbox-src");
-      var alt = el.getAttribute("data-lightbox-alt") || "";
-      lbContent.style.background = "transparent";
-      lbContent.classList.add("is-image");
-      lbContent.innerHTML = '<img src="' + src + '" alt="' + alt + '">';
-      lightbox.classList.add("open");
-      lightbox.setAttribute("aria-hidden", "false");
+  /* --- Carrusel del alojamiento (selección editorial) --- */
+  function openImg(src, alt) {
+    if (!lightbox || !lbContent) return;
+    lbContent.style.background = "transparent";
+    lbContent.classList.add("is-image");
+    lbContent.innerHTML = '<img src="' + src + '" alt="' + (alt || "") + '">';
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  var lavandaPhotos = [
+    { src: "assets/lavanda-16.jpg", alt: "Piscina con vistas a las montañas en La Lavanda" },
+    { src: "assets/lavanda-1.jpg",  alt: "Comedor con vistas a las montañas" },
+    { src: "assets/lavanda-2.jpg",  alt: "Una copa frente al paisaje, para desconectar" },
+    { src: "assets/lavanda-6.jpg",  alt: "Salón con vistas al valle" },
+    { src: "assets/lavanda-7.jpg",  alt: "Salón luminoso de techos altos" },
+    { src: "assets/lavanda-4.jpg",  alt: "Cocina de la casa" },
+    { src: "assets/lavanda-11.jpg", alt: "Dormitorio de matrimonio" },
+    { src: "assets/lavanda-8.jpg",  alt: "Dormitorio con dos camas" },
+    { src: "assets/lavanda-21.jpg", alt: "Terraza para comer al aire libre con vistas" }
+  ];
+  var track = document.getElementById("entornoGallery");
+  if (track) {
+    lavandaPhotos.forEach(function (ph) {
+      var b = document.createElement("button");
+      b.className = "ph"; b.type = "button";
+      b.setAttribute("aria-label", "Ampliar: " + ph.alt);
+      var img = document.createElement("img");
+      img.src = ph.src; img.alt = ph.alt; img.loading = "lazy";
+      b.appendChild(img);
+      b.addEventListener("click", function () { openImg(ph.src, ph.alt); });
+      track.appendChild(b);
     });
-  });
+    var carStep = function () {
+      var first = track.querySelector(".ph");
+      return (first ? first.getBoundingClientRect().width + 14 : 320) * 2;
+    };
+    var prev = document.getElementById("carPrev");
+    var next = document.getElementById("carNext");
+    if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -carStep(), behavior: "smooth" }); });
+    if (next) next.addEventListener("click", function () { track.scrollBy({ left: carStep(), behavior: "smooth" }); });
+  }
 
   function closeLightbox() {
     if (!lightbox) return;
