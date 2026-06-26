@@ -129,6 +129,7 @@
     { src: "assets/lavanda-4.jpg",  alt: "Cocina de la casa" },
     { src: "assets/lavanda-11.jpg", alt: "Dormitorio de matrimonio" },
     { src: "assets/lavanda-8.jpg",  alt: "Dormitorio con dos camas" },
+    { src: "assets/lavanda-19.jpg", alt: "Baño con ducha de la casa" },
     { src: "assets/lavanda-21.jpg", alt: "Terraza para comer al aire libre con vistas" }
   ];
   var track = document.getElementById("entornoGallery");
