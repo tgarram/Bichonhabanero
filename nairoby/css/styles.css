@@ -1,0 +1,336 @@
+/* ===========================================================
+   NAIROBY — Head Spa & Hair Atelier
+   Estética "Ultra Quiet Luxury": marfil, arena, piedra, taupe,
+   negro carbón y latón mate. Editorial, silenciosa, atemporal.
+   =========================================================== */
+
+:root {
+  /* Paleta */
+  --ivory: #f7f4ef;       /* blanco roto */
+  --marfil: #efe9e0;      /* marfil */
+  --sand: #e6dccc;        /* arena cálida */
+  --stone: #d8cdbb;       /* beige piedra */
+  --taupe: #a99c8a;       /* taupe suave */
+  --charcoal: #2b2723;    /* negro carbón */
+  --brass: #b3a07c;       /* latón mate / champagne apagado */
+  --brass-deep: #968457;
+  --ink: #34302b;
+  --muted: #877c6e;
+  --white: #ffffff;
+
+  /* Sistema */
+  --maxw: 1180px;
+  --radius: 2px;
+  --shadow-soft: 0 30px 60px -40px rgba(43, 39, 35, 0.35);
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--ivory);
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--charcoal);
+  letter-spacing: 0.005em;
+}
+h1 { font-size: clamp(3.4rem, 11vw, 7rem); font-weight: 400; letter-spacing: 0.14em; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1rem; }
+
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 32px; }
+.narrow { max-width: 760px; }
+.center { text-align: center; }
+
+/* Etiqueta tipo "eyebrow" — mayúsculas espaciadas */
+.eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  color: var(--brass-deep);
+  font-weight: 400;
+  margin-bottom: 1.4rem;
+}
+.eyebrow.light { color: var(--brass); }
+
+.lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.9;
+}
+.lead.light { color: rgba(247, 244, 239, 0.78); }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 300;
+  background: var(--charcoal); color: var(--ivory);
+  padding: 12px 18px; letter-spacing: 0.1em; font-size: 0.85rem;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 16px 38px;
+  font-family: var(--font-body); font-weight: 400; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.24em;
+  cursor: pointer; border: 1px solid transparent; border-radius: var(--radius);
+  transition: background .5s var(--ease), color .5s var(--ease),
+              border-color .5s var(--ease), transform .5s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-solid { background: var(--charcoal); color: var(--ivory); }
+.btn-solid:hover { background: var(--brass-deep); }
+.btn-line { background: transparent; color: var(--charcoal); border-color: var(--taupe); }
+.btn-line:hover { border-color: var(--charcoal); background: rgba(43, 39, 35, 0.04); }
+.btn-solid-light { background: var(--ivory); color: var(--charcoal); }
+.btn-solid-light:hover { background: var(--brass); color: var(--ivory); }
+.btn-line-light { background: transparent; color: var(--ivory); border-color: rgba(247, 244, 239, 0.4); }
+.btn-line-light:hover { border-color: var(--ivory); background: rgba(247, 244, 239, 0.06); }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(247, 244, 239, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(169, 156, 138, 0.22);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 88px; }
+.brand { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.34em; color: var(--charcoal); }
+.brand-sub { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.32em; color: var(--muted); margin-top: 3px; }
+
+.nav ul { display: flex; align-items: center; gap: 2.4rem; list-style: none; }
+.nav a {
+  font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--ink); position: relative; padding: 4px 0;
+}
+.nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 1px;
+  background: var(--brass-deep); transition: width .4s var(--ease);
+}
+.nav a:hover::after { width: 100%; }
+.nav .nav-cta {
+  border: 1px solid var(--taupe); padding: 9px 22px; letter-spacing: 0.2em;
+  transition: background .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease);
+}
+.nav .nav-cta::after { display: none; }
+.nav .nav-cta:hover { background: var(--charcoal); color: var(--ivory); border-color: var(--charcoal); }
+
+.nav-toggle {
+  display: none; flex-direction: column; gap: 5px; width: 30px; height: 24px;
+  background: none; border: none; cursor: pointer; padding: 0;
+}
+.nav-toggle span { height: 1px; width: 100%; background: var(--charcoal); transition: transform .35s var(--ease), opacity .35s var(--ease); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; min-height: 92vh; display: flex; align-items: center;
+  text-align: center; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--ivory), var(--marfil) 55%, var(--sand) 100%);
+}
+.hero-veil {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 38%, rgba(255,255,255,0.5), transparent 70%),
+    radial-gradient(40% 30% at 80% 80%, rgba(179,160,124,0.12), transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; padding-block: 8vh; }
+.hero h1 { margin: 0.4rem 0 0.2rem; }
+.hero-sub {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem); color: var(--brass-deep);
+  letter-spacing: 0.16em; margin-bottom: 2.6rem;
+}
+.claim {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--charcoal); font-weight: 400; margin-bottom: 1rem; letter-spacing: 0.01em;
+}
+.hero-text { color: var(--muted); max-width: 540px; margin: 0 auto 2.8rem; font-weight: 300; }
+.hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.scroll-hint {
+  position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 56px; background: rgba(150, 132, 87, 0.4); overflow: hidden;
+}
+.scroll-hint span {
+  position: absolute; top: -56px; left: 0; width: 1px; height: 56px;
+  background: var(--brass-deep); animation: scrollDot 2.4s var(--ease) infinite;
+}
+@keyframes scrollDot { 0% { top: -56px; } 60%,100% { top: 56px; } }
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(72px, 11vw, 140px); }
+.section-tint { background: var(--marfil); }
+.section-head { max-width: 680px; margin: 0 auto clamp(48px, 6vw, 78px); text-align: center; }
+.section-intro { color: var(--muted); margin-top: 1.2rem; font-weight: 300; }
+
+.manifiesto h2 { margin-bottom: 1.8rem; }
+
+/* ---------- Rituales ---------- */
+.ritual-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(169, 156, 138, 0.3);
+  border-left: 1px solid rgba(169, 156, 138, 0.3);
+}
+.ritual {
+  padding: clamp(28px, 3vw, 44px) clamp(22px, 2.4vw, 34px);
+  border-right: 1px solid rgba(169, 156, 138, 0.3);
+  border-bottom: 1px solid rgba(169, 156, 138, 0.3);
+  background: transparent; transition: background .5s var(--ease);
+}
+.ritual:hover { background: rgba(247, 244, 239, 0.6); }
+.ritual-index {
+  font-family: var(--font-display); font-style: italic; font-size: 1rem;
+  color: var(--brass-deep); letter-spacing: 0.1em;
+}
+.ritual h3 { margin: 1rem 0 0.8rem; font-size: 1.35rem; }
+.ritual p { color: var(--muted); font-size: 0.95rem; font-weight: 300; line-height: 1.75; }
+
+/* ---------- Experiencia (steps) ---------- */
+.steps {
+  list-style: none; display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 3vw, 48px); counter-reset: step;
+}
+.step { text-align: center; }
+.step-num {
+  display: inline-block; font-family: var(--font-display); font-size: 2rem;
+  color: var(--brass-deep); letter-spacing: 0.1em; padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(169, 156, 138, 0.5); min-width: 56px; margin-bottom: 1.4rem;
+}
+.step h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.step p { color: var(--muted); font-size: 0.95rem; font-weight: 300; }
+
+/* ---------- Head Spa (split) ---------- */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
+.split-media {
+  aspect-ratio: 4 / 5; border-radius: var(--radius); box-shadow: var(--shadow-soft);
+  background:
+    radial-gradient(80% 60% at 30% 20%, rgba(255,255,255,0.7), transparent 60%),
+    linear-gradient(160deg, var(--stone), var(--sand) 45%, var(--taupe) 120%);
+  position: relative; overflow: hidden;
+}
+.split-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(50% 40% at 70% 75%, rgba(179,160,124,0.25), transparent 70%);
+}
+.split-text h2 { margin: 0.4rem 0 1.4rem; }
+.feature-list { list-style: none; margin: 1.8rem 0 2.4rem; }
+.feature-list li {
+  position: relative; padding-left: 26px; margin-bottom: 0.9rem;
+  color: var(--ink); font-weight: 300;
+}
+.feature-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.85em;
+  width: 12px; height: 1px; background: var(--brass-deep);
+}
+
+/* ---------- Testimonios ---------- */
+.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 56px); }
+.quote { text-align: center; padding: 0 0.5rem; }
+.quote blockquote {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.6; color: var(--charcoal);
+}
+.quote figcaption {
+  margin-top: 1.6rem; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.28em; color: var(--brass-deep);
+}
+
+/* ---------- Reserva (dark) ---------- */
+.section-dark { background: var(--charcoal); color: var(--ivory); }
+.section-dark h2 { color: var(--ivory); }
+.reserva-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2.6rem 0 1.6rem; }
+.reserva-note {
+  font-family: var(--font-display); font-style: italic; font-size: 1.1rem;
+  color: rgba(247, 244, 239, 0.55);
+}
+.reserva h2 { margin: 0.4rem 0 1.4rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--marfil); padding-block: clamp(56px, 7vw, 90px) 28px; border-top: 1px solid rgba(169, 156, 138, 0.3); }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.footer-brand .brand-name { font-family: var(--font-display); font-size: 1.7rem; letter-spacing: 0.3em; color: var(--charcoal); }
+.footer-brand .brand-sub { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--muted); margin-top: 6px; }
+.footer-tag { font-family: var(--font-display); font-style: italic; color: var(--brass-deep); margin-top: 1.2rem; }
+.footer-col h4 { text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.72rem; color: var(--charcoal); margin-bottom: 1.1rem; font-family: var(--font-body); font-weight: 500; }
+.footer-col p { color: var(--muted); font-size: 0.92rem; margin-bottom: 0.7rem; font-weight: 300; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a { color: var(--muted); font-size: 0.92rem; position: relative; }
+.footer-links a:hover { color: var(--charcoal); }
+.footer-bottom { margin-top: clamp(40px, 5vw, 64px); padding-top: 22px; border-top: 1px solid rgba(169, 156, 138, 0.3); }
+.footer-bottom p { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.02em; }
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed; right: 26px; bottom: 26px; width: 46px; height: 46px;
+  border-radius: 50%; border: 1px solid var(--taupe); background: var(--ivory);
+  color: var(--charcoal); cursor: pointer; font-size: 1rem; z-index: 90;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .4s var(--ease), color .4s var(--ease);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: var(--charcoal); color: var(--ivory); }
+
+/* ---------- Reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .ritual-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .split { grid-template-columns: 1fr; }
+  .split-media { aspect-ratio: 16 / 10; max-height: 420px; }
+  .quote-grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 680px) {
+  .container { padding-inline: 22px; }
+  .nav-toggle { display: flex; }
+  .nav {
+    position: fixed; inset: 88px 0 auto 0; background: var(--ivory);
+    border-bottom: 1px solid rgba(169, 156, 138, 0.3);
+    max-height: 0; overflow: hidden; transition: max-height .5s var(--ease);
+  }
+  .nav.open { max-height: 70vh; }
+  .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 12px 22px 26px; }
+  .nav li { border-bottom: 1px solid rgba(169, 156, 138, 0.2); }
+  .nav a { display: block; padding: 16px 0; letter-spacing: 0.22em; }
+  .nav .nav-cta { border: none; padding: 16px 0; text-align: left; }
+  .nav .nav-cta:hover { background: none; color: var(--brass-deep); }
+  .ritual-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 36px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 88vh; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .scroll-hint span { animation: none; }
+  .btn:hover, .to-top:hover { transform: none; }
+}
